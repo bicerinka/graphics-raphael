@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Графики на javascript(Raphael)</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="raphael.js"></script>
+    <script src="popup.js"></script>
+    <script src="analyticsNew.js"></script>
+</head>
+<body>
+<div id="graph-data" style="display:none;">
+    <div class="max">[10,12,3,4,5]</div>
+    <div class="labels">["2018-04-29","2018-04-30","2018-01-01","2018-01-02","2018-01-03"]</div>
+    <div class="all">[
+        {"count":[1,1,11,2,10],"name":"График 1"},
+        {"count":[10,9,5,12,4],"name":"График 2"},
+        {"count":[5,8,12,7,11],"name":"График 3"},
+        {"count":[4,4,0,4,4],"name":"График 4"},
+        {"count":[5,5,1,5,5],"name":"График 5"}
+        ]</div>
+    <div class="graphY">count</div>
+</div>
+<div id="holder" style="float: left;"></div>
+<div id="holder-colors" style="padding-top: 45px;"></div>
+</body>
+</html>
