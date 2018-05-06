@@ -18,7 +18,6 @@ Date.prototype.format = function (mask, utc) {
 };
 
 window.onload = function () {
-    // console.log(555);
     function getAnchors(p1x, p1y, p2x, p2y, p3x, p3y) {
         var l1 = (p2x - p1x) / 2,
             l2 = (p3x - p2x) / 2,
@@ -69,7 +68,6 @@ window.onload = function () {
         max = Math.max.apply(Math, maxY), /// максимальное значение
         Y = (height - bottomgutter - topgutter) / max;
         r.drawGrid(leftgutter + X * .5 + .5, topgutter + .5, width - leftgutter - X, height - topgutter - bottomgutter, 10, 10, "#000");   // рисуется сетка
-    // console.log(max, X);
 
     var colors = ['#003A88', '#ff0000', '#00FF00', '#FF00FF', '#FFD700',  '#07B10D', '00FF00', '#00CED1', '#00BFFF', '#fe2390', '#00f39f', '#000001', '#FF6347',  '#0000ff',
                 '#B8860B', '#DA70D6', '#27408B', '#668B8B', '#008B00', '#FF6A6A','#551A8B', '#1C1C1C', '#32CD32', '#008B8B', '#800000']; // 25 цветов, добавить если нужно
@@ -92,17 +90,13 @@ window.onload = function () {
 
         var frame = r.popup(100, 100, label, "right").attr({fill: "#000", stroke: '#003A88', "stroke-width": 2, "fill-opacity": .7}).hide(); // подсказка всплывающая
         var p;
-        console.log('labels', labels);
         for (var i = 0, ii = labels.length; i < ii; i++) {
-            // console.log('labels.**');
             var y = Math.round(height - bottomgutter - Y * data[i]),
                 x = Math.round(leftgutter + X * (i + .5)),
                 t = r.text(x, height - 6, labels[i]).attr(txt2).toBack();
             if (!i) {
                 p = ["M", x, y, "C", x, y];
             }
-            // console.log(height,bottomgutter, Y, data[i]);
-            // console.log('data ', data);
             if (i && i < ii - 1) {
                 var Y0 = Math.round(height - bottomgutter - Y * data[i - 1]),
                     X0 = Math.round(leftgutter + X * (i - .5)),
@@ -146,8 +140,6 @@ window.onload = function () {
                 });
             })(x, y, data[i], labels[i], dot);
         }
-        console.log(x,y);
-        // return;
         p = p.concat([x, y, x, y]);
         path.attr({path: p});  // выводится кривая линия на график
         frame.toFront(); // чтобы подсказки перекрывали точки
